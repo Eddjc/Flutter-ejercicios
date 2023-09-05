@@ -1,8 +1,8 @@
 void  main() {
   
-  final mySquare = Square(side: 10);
+  final mySquare = Square(side: -10);
   
-  mySquare.side = -5;
+  //mySquare.side = -5;
   
   print('Area: ${ mySquare.area }');
   
@@ -14,7 +14,8 @@ class Square {
   
   //constructor establecemos el valor del side
   Square({ required double side })
-    : _side = side;
+    : assert(side >= 0, 'Valor debe de ser >= 0'), //las aserciones son validaciones se ponen antes de insertar el valor a una variable
+      _side = side;
   
   //el _ antes del nombre significa que el valor es privado eso quiere decir que solo puede ser accedido dentro de la clase Square
   double get area {
